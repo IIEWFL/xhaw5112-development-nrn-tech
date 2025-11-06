@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering The Nations - Skills Development College</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #27ae60;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        center {
+            text-align: center;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--secondary);
+            color: white;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #c0392b;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .welcome {
+            background-color: white;
+            padding: 4rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            margin: -3rem auto 3rem;
+            position: relative;
+            max-width: 1000px;
+            text-align: center;
+        }
+        
+        .welcome-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .course-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--secondary);
+        }
+        
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+        }
+        
+        .course-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .course-card .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+        
+        .course-card .duration {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+        
+        .course-detail {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .course-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--light);
+        }
+        
+        .course-header h2 {
+            color: var(--primary);
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .course-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin: 1rem 0;
+        }
+        
+        .skills-list {
+            margin: 2rem 0;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.8rem;
+            list-style: none;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skills-list li:before {
+            content: '☑';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+        }
+        
+        .calculator {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .calculator-course {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .calculator-course:hover {
+            background: #e9ecef;
+        }
+        
+        .calculator-course.selected {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .calculator-course input {
+            margin-right: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .fee-summary {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--success);
+        }
+        
+        .fee-summary h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .fee-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fee-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #ddd;
+        }
+        
+        .savings {
+            color: var(--success);
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+        
+        .application-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+        
+        .course-selection {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .course-checkbox {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-checkbox input {
+            margin-right: 10px;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+        
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .hours-table td {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .form-row .form-group {
+                margin-bottom: 1.5rem;
+            }
+            
+            .course-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .tab-container {
+            margin: 2rem 0;
+        }
+        
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: #e0e0e0;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn:first-child {
+            border-radius: 5px 0 0 5px;
+        }
+        
+        .tab-btn:last-child {
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tab-btn.active {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+
+         .logoo {
+      position: absolute; /* Takes the logo out of normal document flow */
+      top: 10px; /* Distance from the top of the page */
+      left: 10px; /* Distance from the left of the page */
+      width: 100px; /* Adjust the size of the logo */
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            EMPOWERING THE NATIONS
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="courses">Courses</a></li>
+                <li><a href="#" class="nav-link" data-page="calculator">Fee Calculator</a></li>
+                <li><a href="#" class="nav-link" data-page="application">Apply</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
+
+    </header>
+        <div class="center">
+            <img src="_images/Picture2.jpg" alt="ETN Logo" class="Logo" >
+        </div>
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">  
+
+            <div class="container">
+                <h1>Welcome to Your Future</h1>
+                <p>Never too late to learn new skills! Join our community of learners and boost your earning potential.</p>
+                <a href="#" class="btn btn-accent nav-link" data-page="courses">View All Courses</a>
+                <a href="#" class="btn btn-outline nav-link" data-page="application">Apply Now</a>
+            </div>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="container">
+            <div class="welcome">
+                <h2>Skills Development College</h2>
+                <p>Empowering individuals with practical skills for sustainable employment and personal growth</p>
+                
+                <div class="welcome-stats">
+                    <div class="stat">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Students Trained</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">Course Options</div>
+                    </div>
+                </div>
+                
+                <a href="#" class="btn nav-link" data-page="courses">Explore Our Courses</a>
+            </div>
+        </section>
+
+        <!-- Featured Courses -->
+        <section class="container">
+            <div class="section-title">
+                <h2>Featured Courses</h2>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card">
+                    <h3>Child Minding</h3>
+                    <div class="price">R750</div>
+                    <div class="duration">6 weeks</div>
+                    <p>Learn professional childcare skills, safety procedures, and child development basics.</p>
+                    <a href="#" class="btn course-detail-link" data-course="childminding">View Details</a>
+                </div>
+                
+                <div class="course-card">
+                    <h3>Cooking</h3>
+                    <div class="price">R750</div>
+                    <div class="duration">6 weeks</div>
+                    <p>Develop culinary skills for home cooking or catering opportunities.</p>
+                    <a href="#" class="btn course-detail-link" data-course="cooking">View Details</a>
+                </div>
+                
+                <div class="course-card">
+                    <h3>First Aid</h3>
+                    <div class="price">R1500</div>
+                    <div class="duration">6 months</div>
+                    <p>Comprehensive first aid training with certification for workplace safety.</p>
+                    <a href="#" class="btn course-detail-link" data-course="firstaid">View Details</a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#" class="btn nav-link" data-page="courses">View All Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Courses Page -->
+    <div id="courses" class="page">
+        <section class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+            </div>
+            
+            <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="openTab('short-courses')">6-Week Courses</button>
+                    <button class="tab-btn" onclick="openTab('long-courses')">6-Month Courses</button>
+                </div>
+                
+                <div id="short-courses" class="tab-content active">
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <h3>Child Minding</h3>
+                            <div class="price">R750</div>
+                            <div class="duration">6 weeks</div>
+                            <p>Learn professional childcare skills, safety procedures, and child development basics.</p>
+                            <a href="#" class="btn course-detail-link" data-course="childminding">View Details</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <h3>Garden Maintenance</h3>
+                            <div class="price">R750</div>
+                            <div class="duration">6 weeks</div>
+                            <p>Develop skills in plant care, landscaping basics, tool usage, and sustainable gardening.</p>
+                            <a href="#" class="btn course-detail-link" data-course="garden">View Details</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <h3>Cooking</h3>
+                            <div class="price">R750</div>
+                            <div class="duration">6 weeks</div>
+                            <p>Develop culinary skills for home cooking or catering opportunities.</p>
+                            <a href="#" class="btn course-detail-link" data-course="cooking">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="long-courses" class="tab-content">
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <h3>First Aid</h3>
+                            <div class="price">R1500</div>
+                            <div class="duration">6 months</div>
+                            <p>Comprehensive first aid training with certification for workplace safety.</p>
+                            <a href="#" class="btn course-detail-link" data-course="firstaid">View Details</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <h3>Sewing</h3>
+                            <div class="price">R1500</div>
+                            <div class="duration">6 months</div>
+                            <p>Learn pattern making, garment construction, alterations, and professional sewing.</p>
+                            <a href="#" class="btn course-detail-link" data-course="sewing">View Details</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <h3>Landscaping</h3>
+                            <div class="price">R1500</div>
+                            <div class="duration">6 months</div>
+                            <p>Garden design, irrigation systems, plant selection, and professional landscaping techniques.</p>
+                            <a href="#" class="btn course-detail-link" data-course="landscaping">View Details</a>
+                        </div>
+                        
+                        <div class="course-card">
+                            <h3>Life Skills</h3>
+                            <div class="price">R1500</div>
+                            <div class="duration">6 months</div>
+                            <p>Financial literacy, communication skills, time management, and personal development.</p>
+                            <a href="#" class="btn course-detail-link" data-course="lifeskills">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Course Detail Pages -->
+    <div id="course-detail" class="page">
+        <section class="container">
+            <!-- Content will be loaded dynamically by JavaScript -->
+        </section>
+    </div>
+
+    <!-- Fee Calculator Page -->
+    <div id="calculator" class="page">
+        <section class="container">
+            <div class="section-title">
+                <h2>Fee Calculator</h2>
+                <p>Select multiple courses to see discounts</p>
+            </div>
+            
+            <div class="calculator">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Select Your Courses:</h3>
+                
+                <div class="calculator-grid">
+                    <div class="calculator-course" data-course="childminding" data-price="750">
+                        <input type="checkbox" id="calc-childminding">
+                        <label for="calc-childminding">Child Minding - R750 (6 weeks)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="garden" data-price="750">
+                        <input type="checkbox" id="calc-garden">
+                        <label for="calc-garden">Garden Maintenance - R750 (6 weeks)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="cooking" data-price="750">
+                        <input type="checkbox" id="calc-cooking">
+                        <label for="calc-cooking">Cooking - R750 (6 weeks)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="firstaid" data-price="1500">
+                        <input type="checkbox" id="calc-firstaid">
+                        <label for="calc-firstaid">First Aid - R1500 (6 months)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="sewing" data-price="1500">
+                        <input type="checkbox" id="calc-sewing">
+                        <label for="calc-sewing">Sewing - R1500 (6 months)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="landscaping" data-price="1500">
+                        <input type="checkbox" id="calc-landscaping">
+                        <label for="calc-landscaping">Landscaping - R1500 (6 months)</label>
+                    </div>
+                    
+                    <div class="calculator-course" data-course="lifeskills" data-price="1500">
+                        <input type="checkbox" id="calc-lifeskills">
+                        <label for="calc-lifeskills">Life Skills - R1500 (6 months)</label>
+                    </div>
+                </div>
+                
+                <div class="fee-summary">
+                    <h3>Fee Summary:</h3>
+                    <div id="selected-courses">
+                        <!-- Selected courses will be added here -->
+                    </div>
+                    
+                    <div class="fee-total">
+                        <span>Total:</span>
+                        <span id="total-fee">R0.00</span>
+                    </div>
+                    
+                    <div class="savings" id="savings-message">
+                        <!-- Savings message will be added here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Application Form Page -->
+    <div id="application" class="page">
+        <section class="container">
+            <div class="section-title">
+                <h2>Application Form</h2>
+            </div>
+            
+            <div class="application-form">
+                <form id="courseApplication">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Personal Information</h3>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="idNumber">ID Number *</label>
+                            <input type="text" id="idNumber" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <input type="text" id="address" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="postalCode">Postal Code *</label>
+                            <input type="text" id="postalCode" required>
+                        </div>
+                    </div>
+                    
+                    <h3 style="color: var(--primary); margin: 2rem 0 1.5rem;">Course Selection</h3>
+                    
+                    <div class="course-selection">
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-childminding" name="courses" value="childminding" data-price="750">
+                            <label for="app-childminding">Child Minding - R750 (6 weeks)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-garden" name="courses" value="garden" data-price="750">
+                            <label for="app-garden">Garden Maintenance - R750 (6 weeks)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-cooking" name="courses" value="cooking" data-price="750">
+                            <label for="app-cooking">Cooking - R750 (6 weeks)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-firstaid" name="courses" value="firstaid" data-price="1500">
+                            <label for="app-firstaid">First Aid - R1500 (6 months)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-sewing" name="courses" value="sewing" data-price="1500">
+                            <label for="app-sewing">Sewing - R1500 (6 months)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-landscaping" name="courses" value="landscaping" data-price="1500">
+                            <label for="app-landscaping">Landscaping - R1500 (6 months)</label>
+                        </div>
+                        
+                        <div class="course-checkbox">
+                            <input type="checkbox" id="app-lifeskills" name="courses" value="lifeskills" data-price="1500">
+                            <label for="app-lifeskills">Life Skills - R1500 (6 months)</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 2rem;">Submit Application</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            
+            <div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1; min-width: 300px; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Get In Touch</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> 011 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@empoweringnations.co.za</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Johannesburg, Gauteng</li>
+                    </ul>
+                </div>
+                
+                <div style="flex: 1; min-width: 300px; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Office Hours</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Monday - Friday:</td>
+                            <td>8:00 AM - 5:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Saturday:</td>
+                            <td>9:00 AM - 1:00 PM</td>
+                        </tr>
+                        <tr>
+                            <td>Sunday:</td>
+                            <td>Closed</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; background: var(--primary); color: white; padding: 2rem; border-radius: 10px;">
+                <h3 style="margin-bottom: 1rem;">Ready to Start Learning?</h3>
+                <p style="margin-bottom: 1.5rem; font-size: 1.2rem;">Call us today to enroll in any of our courses</p>
+                <div style="font-size: 1.8rem; font-weight: bold;">011 123 4567</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EMPOWERING THE NATIONS</h3>
+                    <p>Skills Development College</p>
+                    <p>Transforming lives through quality education and practical skills training for sustainable employment and personal growth.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" class="nav-link" data-page="home" style="color: white; text-decoration: none;">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="courses" style="color: white; text-decoration: none;">Courses</a></li>
+                        <li><a href="#" class="nav-link" data-page="calculator" style="color: white; text-decoration: none;">Fee Calculator</a></li>
+                        <li><a href="#" class="nav-link" data-page="application" style="color: white; text-decoration: none;">Apply</a></li>
+                        <li><a href="#" class="nav-link" data-page="contact" style="color: white; text-decoration: none;">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-phone"></i> 011 123 4567</li>
+                        <li><i class="fas fa-envelope"></i> info@empoweringnations.co.za</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Johannesburg, Gauteng</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2024 Empowering The Nations. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Course data
+        const courses = {
+            childminding: {
+                title: "Child Minding",
+                price: 750,
+                duration: "6 weeks",
+                description: "Learn professional childcare skills, safety procedures, and child development basics. This course covers everything from basic child psychology to emergency procedures, ensuring you can provide safe and nurturing care for children of all ages.",
+                skills: [
+                    "Child Safety & Protection",
+                    "Basic First Aid for Children",
+                    "Educational Play Activities",
+                    "Child Nutrition & Health",
+                    "Behavior Management",
+                    "Emergency Procedures"
+                ]
+            },
+            cooking: {
+                title: "Cooking",
+                price: 750,
+                duration: "6 weeks",
+                description: "Develop culinary skills for home cooking or catering opportunities. From basic knife skills to advanced cooking techniques, learn to prepare nutritious, delicious meals while understanding food safety and cost management.",
+                skills: [
+                    "Food Safety & Hygiene",
+                    "Meal Planning & Prep",
+                    "Basic to Advanced Cooking Techniques",
+                    "Cost-Effective Shopping",
+                    "Nutritional Knowledge",
+                    "Kitchen Equipment Usage"
+                ]
+            },
+            firstaid: {
+                title: "First Aid",
+                price: 1500,
+                duration: "6 months",
+                description: "Comprehensive first aid training with certification for workplace safety. This accredited course prepares you to handle medical emergencies confidently and could lead to employment opportunities in various sectors.",
+                skills: [
+                    "CPR Certification",
+                    "Emergency Response Procedures",
+                    "Wound Care & Treatment",
+                    "Medical Equipment Usage",
+                    "Trauma Assessment",
+                    "Patient Communication"
+                ]
+            },
+            garden: {
+                title: "Garden Maintenance",
+                price: 750,
+                duration: "6 weeks",
+                description: "Develop skills in plant care, landscaping basics, tool usage, and sustainable gardening practices. Learn to create and maintain beautiful outdoor spaces.",
+                skills: [
+                    "Plant Identification & Care",
+                    "Basic Landscaping Techniques",
+                    "Garden Tool Usage & Maintenance",
+                    "Soil Preparation & Fertilization",
+                    "Sustainable Gardening Practices",
+                    "Irrigation System Basics"
+                ]
+            },
+            sewing: {
+                title: "Sewing & Tailoring",
+                price: 1500,
+                duration: "6 months",
+                description: "Learn pattern making, garment construction, alterations, and professional sewing machine operation. Develop skills to create and repair clothing professionally.",
+                skills: [
+                    "Pattern Making",
+                    "Garment Construction",
+                    "Clothing Alterations",
+                    "Professional Sewing Machine Operation",
+                    "Fabric Selection & Care",
+                    "Quality Control & Finishing"
+                ]
+            },
+            landscaping: {
+                title: "Landscaping",
+                price: 1500,
+                duration: "6 months",
+                description: "Garden design, irrigation systems, plant selection, and professional landscaping techniques. Learn to create beautiful and functional outdoor spaces.",
+                skills: [
+                    "Garden Design Principles",
+                    "Irrigation System Installation",
+                    "Plant Selection & Placement",
+                    "Hardscaping Techniques",
+                    "Landscape Maintenance",
+                    "Client Consultation & Project Management"
+                ]
+            },
+            lifeskills: {
+                title: "Life Skills",
+                price: 1500,
+                duration: "6 months",
+                description: "Financial literacy, communication skills, time management, and personal development. Equip yourself with essential skills for personal and professional success.",
+                skills: [
+                    "Financial Literacy & Budgeting",
+                    "Effective Communication",
+                    "Time Management & Organization",
+                    "Problem Solving & Decision Making",
+                    "Personal Development Planning",
+                    "Stress Management & Wellness"
+                ]
+            }
+        };
+
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('data-page');
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // Show selected page
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+                
+                // Scroll to top
+                window.scrollTo(0, 0);
+            });
+        });
+
+        // Course detail links
+        document.querySelectorAll('.course-detail-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const courseId = this.getAttribute('data-course');
+                showCourseDetail(courseId);
+            });
+        });
+
+        // Show course detail
+        function showCourseDetail(courseId) {
+            const course = courses[courseId];
+            if (!course) return;
+            
+            const courseDetailPage = document.getElementById('course-detail');
+            courseDetailPage.innerHTML = `
+                <div class="course-detail">
+                    <div class="course-header">
+                        <h2>${course.title}</h2>
+                        <div class="course-price">R${course.price}</div>
+                        <div class="duration">${course.duration}</div>
+                    </div>
+                    
+                    <p>${course.description}</p>
+                    
+                    <h3 style="color: var(--primary); margin: 2rem 0 1rem;">Skills You'll Learn:</h3>
+                    <ul class="skills-list">
+                        ${course.skills.map(skill => `<li>${skill}</li>`).join('')}
+                    </ul>
+                    
+                    <div style="text-align: center; margin-top: 2.5rem;">
+                        <a href="#" class="btn btn-accent apply-course" data-course="${courseId}">Apply for This Course - R${course.price}</a>
+                    </div>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="#" class="nav-link" data-page="calculator">Calculate Multiple Course Fees</a>
+                    </div>
+                    
+                    <p style="text-align: center; margin-top: 0.5rem; font-style: italic;">
+                        Get discounts when you enroll in multiple courses!
+                    </p>
+                </div>
+            `;
+            
+            // Show the course detail page
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            courseDetailPage.classList.add('active');
+            
+            // Add event listener to apply button
+            document.querySelector('.apply-course').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(navLink => {
+                    navLink.classList.remove('active');
+                });
+                document.querySelector('.nav-link[data-page="application"]').classList.add('active');
+                
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById('application').classList.add('active');
+                
+                // Check the corresponding course checkbox
+                const courseCheckbox = document.querySelector(`#app-${courseId}`);
+                if (courseCheckbox) {
+                    courseCheckbox.checked = true;
+                }
+                
+                window.scrollTo(0, 0);
+            });
+        }
+
+        // Fee calculator functionality
+        document.querySelectorAll('.calculator-course').forEach(courseEl => {
+            courseEl.addEventListener('click', function() {
+                const checkbox = this.querySelector('input');
+                checkbox.checked = !checkbox.checked;
+                this.classList.toggle('selected', checkbox.checked);
+                updateFeeSummary();
+            });
+        });
+
+        function updateFeeSummary() {
+            const selectedCourses = [];
+            let subtotal = 0;
+            
+            document.querySelectorAll('.calculator-course input:checked').forEach(checkbox => {
+                const courseEl = checkbox.closest('.calculator-course');
+                const courseName = courseEl.querySelector('label').textContent;
+                const coursePrice = parseInt(courseEl.getAttribute('data-price'));
+                
+                selectedCourses.push({
+                    name: courseName,
+                    price: coursePrice
+                });
+                
+                subtotal += coursePrice;
+            });
+            
+            // Apply 5% discount for multiple courses
+            const discount = selectedCourses.length > 1 ? subtotal * 0.05 : 0;
+            const total = subtotal - discount;
+            
+            // Update the fee summary
+            const selectedCoursesEl = document.getElementById('selected-courses');
+            selectedCoursesEl.innerHTML = '';
+            
+            selectedCourses.forEach(course => {
+                const courseItem = document.createElement('div');
+                courseItem.className = 'fee-item';
+                courseItem.innerHTML = `
+                    <span>${course.name}</span>
+                    <span>R${course.price}</span>
+                `;
+                selectedCoursesEl.appendChild(courseItem);
+            });
+            
+            // Update totals
+            document.getElementById('total-fee').textContent = `R${total.toFixed(2)}`;
+            
+            // Update savings message
+            const savingsMessage = document.getElementById('savings-message');
+            if (discount > 0) {
+                savingsMessage.innerHTML = `You're saving R${discount.toFixed(2)} with our multi-course discount!`;
+            } else {
+                savingsMessage.innerHTML = '';
+            }
+        }
+
+        // Application form submission
+        document.getElementById('courseApplication').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get selected courses
+            const selectedCourses = [];
+            document.querySelectorAll('input[name="courses"]:checked').forEach(checkbox => {
+                selectedCourses.push(checkbox.value);
+            });
+            
+            if (selectedCourses.length === 0) {
+                alert('Please select at least one course.');
+                return;
+            }
+            
+            // Form validation
+            const requiredFields = ['firstName', 'lastName', 'idNumber', 'phone', 'address', 'city', 'postalCode'];
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // If everything is valid, show success message
+            alert('Thank you for your application! We will contact you soon.');
+            this.reset();
+        });
+
+        // Tab functionality
+        function openTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabId).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
+
+
+<li><a href="#" class="nav-link" data-page="home" style="color: white;" title="Go to Home Page" aria-label="Home Page">Home</a></li>
+<li><a href="#" class="nav-link" data-page="courses" style="color: white;" title="Browse All Courses" aria-label="Courses Page">Courses</a></li>
